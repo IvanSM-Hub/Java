@@ -11,13 +11,13 @@ public static void main(String[] args) {
 		
 		DepartamentoDao deparDao = new DepartamentoDaoImplMy8();
 		
-		testAltaDepartamento(deparDao);
+		//testAltaDepartamento(deparDao);
 		
 		//testModificarDepartamento(deparDao);
 		
-		//testBuscarDepartamento(deparDao);
+		testBuscarDepartamento(deparDao);
 		
-		//testMostrarDepartamentos(deparDao);
+		testMostrarDepartamentos(deparDao);
 		
 		//testEliminarDepartamento(deparDao);
 

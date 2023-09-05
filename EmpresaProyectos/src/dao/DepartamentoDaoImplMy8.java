@@ -7,13 +7,9 @@ import Conexion.AbstractDaoMy8;
 import javabeans.Departamento;
 
 public class DepartamentoDaoImplMy8 extends AbstractDaoMy8 implements DepartamentoDao {
-
-	private static Departamento depar;
 	
 	@Override
 	public int altaDepartamento(Departamento departamento) {
-		
-		depar = new Departamento();
 		
 		sql="insert into departamentos values(?,?,?)";
 		
@@ -21,9 +17,9 @@ public class DepartamentoDaoImplMy8 extends AbstractDaoMy8 implements Departamen
 			
 			ps=conn.prepareStatement(sql);
 			
-			ps.setInt(1, depar.getIdDepar());
-			ps.setString(2, depar.getNombre());
-			ps.setString(3, depar.getDireccion());
+			ps.setInt(1, departamento.getIdDepar());
+			ps.setString(2, departamento.getNombre());
+			ps.setString(3, departamento.getDireccion());
 			
 			filas=ps.executeUpdate();
 			
@@ -87,7 +83,7 @@ public class DepartamentoDaoImplMy8 extends AbstractDaoMy8 implements Departamen
 	@Override
 	public Departamento buscarDepartamento(int idDepar) {
 		
-		depar=new Departamento();
+		Departamento depar=new Departamento();
 		
 		sql="select * from departamentos where id_depart=?";
 		
@@ -98,9 +94,9 @@ public class DepartamentoDaoImplMy8 extends AbstractDaoMy8 implements Departamen
 			rs=ps.executeQuery();
 			
 			if (rs.next()) {
-				ps.setInt(1, depar.getIdDepar());
-				ps.setString(2, depar.getNombre());
-				ps.setString(3, depar.getDireccion());
+				depar.setIdDepar(rs.getInt(1));
+				depar.setNombre(rs.getString(2));
+				depar.setDireccion(rs.getString(3));
 			}
 			
 		} catch (SQLException e) {
@@ -113,7 +109,7 @@ public class DepartamentoDaoImplMy8 extends AbstractDaoMy8 implements Departamen
 	@Override
 	public List<Departamento> mostrarDepartamentos() {
 		
-		depar=new Departamento();
+		Departamento depar=null;
 		
 		sql="select * from departamentos";
 		
@@ -123,9 +119,12 @@ public class DepartamentoDaoImplMy8 extends AbstractDaoMy8 implements Departamen
 			rs=ps.executeQuery();
 			
 			while(rs.next()) {
-				ps.setInt(1, depar.getIdDepar());
-				ps.setString(2, depar.getNombre());
-				ps.setString(3, depar.getDireccion());
+				
+				depar=new Departamento();
+				
+				depar.setIdDepar(rs.getInt(1));
+				depar.setNombre(rs.getString(2));
+				depar.setDireccion(rs.getString(3));
 				
 				lista.add(depar);
 			}

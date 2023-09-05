@@ -12,32 +12,32 @@ List<Departamento> lista = new ArrayList<>();
 	/**
 	 * Envia un objeto de la clase cliente a la base de datos para que se vea reflejado en el listado de la tabla clientes
 	 * <br>
-	 * @param cliente
+	 * @param departamento
 	 * @return int
 	 */
 	int altaDepartamento(Departamento departamento);
 	
 	/**
-	 * Elimina el Cliente pasando su cif de la base de datos.
+	 * Elimina el Departamento pasando su cif de la base de datos.
 	 * <br>
-	 * @param cif
+	 * @param idDepar
 	 * @return int
 	 */
 	int eliminarDepartamento(int idDepar);
 	
 	/**
-	 * Modificar uno de los campos que forman los datos del cliente seleccionado mediante el cif pasado.
+	 * Modificar uno de los campos que forman los datos del departamento seleccionado mediante el cif pasado.
 	 * <br>
-	 * @param cif
-	 * @return Cliente
+	 * @param idDepar
+	 * @return Departamento
 	 */
 	int modificarDepartamento(Departamento cliente);
 	
 	/**
-	 * Encontrar un cliente passando el cif del cliente que se quiere mostrar.
+	 * Encontrar un cliente passando el idDepar del departamento que se quiere mostrar.
 	 * <br>
-	 * @param cif
-	 * @return Cliente
+	 * @param idDepar
+	 * @return Departamento
 	 */
 	Departamento buscarDepartamento(int idDepar);
 	
